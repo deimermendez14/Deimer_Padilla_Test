@@ -13,7 +13,6 @@ npm run dev
 
 ```
 
-
 Interact with the interface to see the visual representation of the exercise solutions.
 
 ## Technologies Used
