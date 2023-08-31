@@ -1,3 +1,9 @@
+/**
+Created by Deimer Mendez 28/8/23
+@author : Deimer Mendez <mendezd@utb.edu.co>
+@date : 28/8/23
+*/
+
 export const lineAdapter = (line: string): [number, number] => {
   const numbers = line.split(",");
 
