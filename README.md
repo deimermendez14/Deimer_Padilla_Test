@@ -1,7 +1,7 @@
 # Project Test README
 
 ## Description
-This repository contains the required test that demonstrates my skills in fullstack development. For questions A and B, I took the opportunity to show my frontend skills and created an interactive interface that shows the solutions to the proposed exercises. For question C contains a TypeScript implementation of a Geo Distributed Least Recently Used (LRU) Cache with real-time data replication. The cache is designed to optimize data access and minimize latency, especially in distributed systems.
+This repository contains the required test that demonstrates my skills in fullstack development. For questions A and B, I took the opportunity to show my frontend skills and created an interactive interface that shows the solutions to the proposed exercises. For question C I developed a program containing a TypeScript implementation of a least recently used (LRU) geodistributed cache with real-time data replication. The cache is designed to optimize data access and minimize latency, especially in distributed systems.
 
 ## Instructions questions A and B
 Follow these steps to explore the frontend interface and its features:
