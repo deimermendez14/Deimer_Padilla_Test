@@ -30,9 +30,33 @@ Here are some screenshots of the frontend interface:
 [![image1.png](https://i.postimg.cc/SKbbfqs5/image1.png)](https://postimg.cc/21GtCsnF)
 
 ### Question B
+
+- Basic Version Comparison
+- Handling Extra Version Parts
+- Handling Non-Numeric Characters
+- Comparing Equal Versions
+- Comparing Long Versions
+
+[![edge-case.png](https://i.postimg.cc/mr0HPv5b/edge-case.png)](https://postimg.cc/Jy5ng28g)
+
 [![image2.png](https://i.postimg.cc/W3f9S683/image2.png)](https://postimg.cc/G8GJmDZw)
 
 ## Instructions question C
+
+For this question I have created a geo lru cache, I have added the functions update, get, replicate, expiration time and localization for different uses.
+
+To test I have created utilities and called them in the main function main. running this file in console will show the different results of these functionalities.
+
+
+- Test 1: Demonstrate the basic definition and function of lru cache.
+
+- Test 2: Replication of elements from different instances
+
+- Test 3: Obtaining location by latitude and longitude. Example of a use case 
+
+- Test 4: Demostart expiration time
+
+
 
 ```
 cd server
