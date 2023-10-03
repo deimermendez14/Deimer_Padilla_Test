@@ -20,11 +20,19 @@ const main = async () => {
   geoLRUCache.put('d', 40, 48.8566, 2.3522);
   geoLRUCache.put('e', 50, 35.682839, 139.759455);
 
+  console.log("Test 1 \n")
+
   testGeoLRUCache({ geoLRUCache });
+
+  console.log("Test 2 \n")
 
   testGeoLRUCacheReplication({ geoLRUCache });
 
+  console.log("Test 3 \n")
+
   testGeoLRUCacheLocation({ geoLRUCache });
+
+  console.log("Test 4 \n")
 
   await testGeoLRUCacheExpirationTime({ geoLRUCache });
 };
