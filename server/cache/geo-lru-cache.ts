@@ -1,13 +1,14 @@
-import { CacheNode } from './cache-node';
-import { CacheCapacityChecker } from './classes/cache-capacity-checker';
-import { CacheDataGetManager } from './classes/cache-data-get-manager';
-import { CacheDataPutManager } from './classes/cache-data-put-manager';
-import { CacheDataRemoveManager } from './classes/cache-data-remove-manager';
-import { CacheNearbyFinder } from './classes/cache-nearby-finder';
-import { CacheReplicaManager } from './classes/cache-replica-manager';
+import {
+  CacheCapacityChecker,
+  CacheDataGetManager,
+  CacheDataPutManager,
+  CacheDataRemoveManager,
+  CacheNearbyFinder,
+  CacheNode,
+  CacheReplicaManager,
+} from '.';
 
-
-export class LRUCache<K, V> {
+export class GeoLRUCache<K, V> {
   cacheMap: Map<K, CacheNode<K, V>> = new Map<K, CacheNode<K, V>>();
   mostRecentlyUsed: CacheNode<K, V> = new CacheNode<K, V>(
     null,
@@ -22,7 +23,7 @@ export class LRUCache<K, V> {
   capacity: number;
   size: number = 0;
   expirationTimeMs: number;
-  replication: LRUCache<K, V>[] = [];
+  replication: GeoLRUCache<K, V>[] = [];
 
   constructor(capacity: number, expirationTimeMs: number) {
     this.capacity = capacity;
@@ -48,9 +49,9 @@ export class LRUCache<K, V> {
     return new CacheDataRemoveManager(this);
   }
 
-  addReplica(instance: LRUCache<K, V>) {
+  addReplica(instance: GeoLRUCache<K, V>) {
     const getReplicaManager = new CacheReplicaManager(this);
-    getReplicaManager.addReplica(instance);
+    return getReplicaManager.addReplica(instance);
   }
 
   getNearby(latitude: number, longitude: number, maxDistance: number) {
@@ -58,14 +59,24 @@ export class LRUCache<K, V> {
     return getNearby.getNearby(latitude, longitude, maxDistance);
   }
 
-  printCacheSnapshot(): void {
-    let aux: CacheNode<K, V> | null = this.mostRecentlyUsed;
+  replicateDataToOtherInstances(
+    key: K,
+    value: V,
+    latitude: number,
+    longitude: number
+  ) {
+    for (const instance of this.replication) {
+      instance.put(key, value, latitude, longitude);
+    }
+  }
 
+  printCacheSnapshot(message: string): void {
+    let aux: CacheNode<K, V> | null = this.mostRecentlyUsed;
+    console.log(`${message}`);
     while (aux) {
-      console.log('-->' + aux.key);
+      console.log(`--> ${aux.key}`);
 
       aux = aux.previous;
     }
   }
 }
-

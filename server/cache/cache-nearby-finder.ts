@@ -1,18 +1,14 @@
 import { calculateDistance } from '../utilities/calculate-distance';
-import { LRUCache } from '../lru-cache';
+import { GeoLRUCache } from './geo-lru-cache';
 
 export class CacheNearbyFinder<K, V> {
-  private cache: LRUCache<K, V>;
+  private cache: GeoLRUCache<K, V>;
 
-  constructor(cache: LRUCache<K, V>) {
+  constructor(cache: GeoLRUCache<K, V>) {
     this.cache = cache;
   }
 
-  public getNearby(
-    latitude: number,
-    longitude: number,
-    maxDistance: number
-  ): V[] {
+  getNearby(latitude: number, longitude: number, maxDistance: number): V[] {
     const nearbyElements: V[] = [];
 
     for (const [key, node] of this.cache.cacheMap.entries()) {

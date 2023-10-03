@@ -1,13 +1,13 @@
-import { LRUCache } from "../lru-cache";
+import { GeoLRUCache } from './geo-lru-cache';
 
 export class CacheDataGetManager<K, V> {
-  private cache: LRUCache<K, V>;
+  private cache: GeoLRUCache<K, V>;
 
-  constructor(cache: LRUCache<K, V>) {
+  constructor(cache: GeoLRUCache<K, V>) {
     this.cache = cache;
   }
 
-  public get(key: K): V | null {
+  get(key: K): V | null {
     const temp = this.cache.cacheMap.get(key);
 
     if (!temp) {

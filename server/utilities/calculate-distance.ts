@@ -4,7 +4,7 @@ export const calculateDistance = (
   lat2: number,
   lon2: number
 ): number => {
-  const earthRadiusKm = 6371; // Radio de la Tierra en kilómetros
+  const earthRadiusKm = 6371;
   const lat1Rad = (lat1 * Math.PI) / 180;
   const lon1Rad = (lon1 * Math.PI) / 180;
   const lat2Rad = (lat2 * Math.PI) / 180;

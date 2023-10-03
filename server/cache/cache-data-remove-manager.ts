@@ -1,13 +1,13 @@
-import { LRUCache } from "../lru-cache";
+import { GeoLRUCache } from './geo-lru-cache';
 
 export class CacheDataRemoveManager<K, V> {
-  private cache: LRUCache<K, V>;
+  private cache: GeoLRUCache<K, V>;
 
-  constructor(cache: LRUCache<K, V>) {
+  constructor(cache: GeoLRUCache<K, V>) {
     this.cache = cache;
   }
 
-  public remove(key: K): void {
+  remove(key: K): void {
     const node = this.cache.cacheMap.get(key);
 
     if (node) {

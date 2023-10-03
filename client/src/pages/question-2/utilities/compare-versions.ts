@@ -23,3 +23,9 @@ export const compareVersions = (version1: string, version2: string): string => {
 
   return "Versions are equal";
 };
+
+const result11 = compareVersions("1.2.3.4.5.6.7.8.9.10", "1.2.3.4.5.6.7.8.9.9");
+
+console.log(result11);
+
+
