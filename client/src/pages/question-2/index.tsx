@@ -24,7 +24,7 @@ export const ItemTwo = (): JSX.Element => {
   return (
     <Fragment>
       <InputsWithMessage
-        mask={"9.9.9"}
+        mask={"9.9.9.9.9.9.9.9.9.9.9.9"}
         label="Version"
         message={comparisonResult}
         setStateFirst={setValue1}
